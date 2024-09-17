@@ -15,12 +15,20 @@ const App: React.FC = () => {
     const newTodo = { id: Date.now(), task, completed: false };
     setTodos([...todos, newTodo]);
   };
+// 완료 상태 토글
+const toggleTodo = (id: number) => {
+  setTodos(
+    todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    )
+  );
+};
 
   return (
     <div>
       <h1>To-Do List</h1>
       <ToDoForm addTodo={addTodo} />
-      <ToDoList todos={todos} />
+      <ToDoList todos={todos} toggleTodo={toggleTodo} />
     </div>
   );
 };
