@@ -1,5 +1,6 @@
 import React from 'react';
 import { ToDo } from '../App';
+import './ToDoItem.css';
 
 interface ToDoItemProps {
   todo: ToDo;
@@ -8,15 +9,13 @@ interface ToDoItemProps {
 
 const ToDoItem: React.FC<ToDoItemProps> = ({ todo, toggleTodo }) => {
   return (
-    <li>
+    <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
       <input
         type="checkbox"
         checked={todo.completed}
         onChange={() => toggleTodo(todo.id)}
       />
-      <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-        {todo.task}
-      </span>
+      <span>{todo.task}</span>
     </li>
   );
 };

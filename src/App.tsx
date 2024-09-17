@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ToDoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
+import './App.css';
 
 export interface ToDo {
   id: number;
@@ -25,7 +26,7 @@ const toggleTodo = (id: number) => {
 };
 
   return (
-    <div>
+    <div className="container">
       <h1>To-Do List</h1>
       <ToDoForm addTodo={addTodo} />
       <ToDoList todos={todos} toggleTodo={toggleTodo} />

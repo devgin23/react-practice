@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ToDoForm.css';
 
 interface ToDoFormProps {
   addTodo: (task: string) => void;
@@ -16,14 +17,15 @@ const ToDoForm: React.FC<ToDoFormProps> = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="todo-form" onSubmit={handleSubmit}>
       <input 
         type="text" 
         value={task} 
         onChange={(e) => setTask(e.target.value)} 
-        placeholder="할 일을 입력하세요" 
+        placeholder="Add a new task" 
+        className='todo-input'
       />
-      <button type="submit">추가</button>
+      <button type="submit" className="todo-button">Add</button>
     </form>
   );
 };
